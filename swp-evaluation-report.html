@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWP Evaluation Report — Product A (桜水産市場)</title>
+<style>
+  :root { --bg: #f8fafc; --card: #ffffff; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --primary: #0f4c81; --accent: #b4235a; --ok: #15803d; --warn: #b45309; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 24px; line-height: 1.5; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header { background: var(--primary); color: #fff; padding: 24px 32px; border-radius: 10px; margin-bottom: 24px; }
+  header h1 { margin: 0 0 8px 0; font-size: 22px; }
+  header p { margin: 0; opacity: 0.9; font-size: 14px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+  .kpi .label { font-size: 12px; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+  .kpi .val { font-size: 26px; font-weight: 700; color: var(--primary); margin-top: 4px; }
+  .kpi .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; overflow-x: auto; }
+  h2 { font-size: 17px; margin: 0 0 14px 0; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border: 1px solid var(--border); padding: 9px 11px; text-align: left; vertical-align: top; }
+  th { background: #f1f5f9; font-weight: 600; color: #1e293b; }
+  tr:nth-child(even) { background: #fafbfc; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .center { text-align: center; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .b-ok { background: #dcfce7; color: var(--ok); }
+  .b-adj { background: #fef3c7; color: var(--warn); }
+  .b-spec { background: #fce7f3; color: var(--accent); }
+  tfoot td { font-weight: 700; background: #e2e8f0; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Báo cáo Đánh giá SWP (Scope × Complexity → SWP) — Product A: 桜水産市場</h1>
+    <p>Baseline: LAB-4 (18/11/2026) · Quy tắc quy đổi: 1 SWP = 4 giờ (0,5 MD) · Kiểm duyệt bởi PL: Tào Thị Ánh Kiều (Mã HV: 2834)</p>
+  </header>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="label">Quy mô phân rã</div><div class="val">7 Epic · 26 Issue</div><div class="sub">64 Sub-issue (ngưỡng ≤ 8 SWP)</div></div>
+    <div class="kpi"><div class="label">Tổng điểm SWP chốt</div><div class="val">290 SWP</div><div class="sub">Skill đề xuất ban đầu: 277 SWP</div></div>
+    <div class="kpi"><div class="label">Tổng giờ thực thi cốt lõi</div><div class="val">1.160 giờ</div><div class="sub">Tương đương 145,0 MD (8h/ngày)</div></div>
+    <div class="kpi"><div class="label">Tổng Effort toàn vòng đời</div><div class="val">1.195,0 MD</div><div class="sub">So với LAB-1 (1.206,5 MD): -11,5 MD</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Bảng tổng hợp chấm điểm SWP theo 7 Epic & 26 Issue</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Epic</th>
+          <th>Mã Issue</th>
+          <th>Tên hạng mục chức năng</th>
+          <th class="center">Sub-issue</th>
+          <th class="center">Skill chấm (S × C)</th>
+          <th class="num">Skill SWP</th>
+          <th class="num">PL Chốt SWP</th>
+          <th class="num">Giờ (×4h)</th>
+          <th class="center">Trạng thái Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>EPIC-01</td><td><code>ISS-01-01</code></td><td>Hạ tầng IaC (AWS Tokyo), PostgreSQL Multi-AZ/PITR & Shim <code>auth.uid()</code></td><td class="center">3</td><td class="center">S3 × C3</td><td class="num">21</td><td class="num"><strong>20</strong></td><td class="num">80</td><td class="center"><span class="badge b-adj">Hiệu chỉnh (-1)</span></td></tr>
+        <tr><td>EPIC-01</td><td><code>ISS-01-02</code></td><td>Xác thực Identity, TOTP MFA bắt buộc, khóa phiên & đổi ca tablet chung</td><td class="center">3</td><td class="center">S2 × C3</td><td class="num">12</td><td class="num"><strong>12</strong></td><td class="num">48</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-01</td><td><code>ISS-01-03</code></td><td>Bảo vệ PII theo APPI (RLS, View che cột, log truy cập) & Audit 7 năm</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-01</td><td><code>ISS-01-04</code></td><td>Framework Scheduler JST (<code>Asia/Tokyo</code>), bảng <code>job_runs</code> & giám sát Batch</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+
+        <tr><td>EPIC-02</td><td><code>ISS-02-01</code></td><td>Schema phân nhánh tư cách (<code>qualifications</code>, <code>permit</code>, <code>approval</code>) & Migration LAB-2</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-02</td><td><code>ISS-02-02</code></td><td>RPC & UI Gỡ tạm dừng rẽ nhánh (<code>条件付き</code> vs <code>再審査 maker≠checker</code>)</td><td class="center">3</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>10</strong></td><td class="num">40</td><td class="center"><span class="badge b-adj">Hiệu chỉnh (+2)</span></td></tr>
+        <tr><td>EPIC-02</td><td><code>ISS-02-03</code></td><td>Quản lý Lịch chợ (<code>営業日/休市日</code>), Job J-01 mở ngày 02:00 JST & J-02 hết hạn</td><td class="center">2</td><td class="center">S2 × C3</td><td class="num">14</td><td class="num"><strong>14</strong></td><td class="num">56</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+
+        <tr><td>EPIC-03</td><td><code>ISS-03-01</code></td><td>Tiếp nhận & Đánh giá Lot (SCR-07..09), sổ cái tồn kho <code>lot_qty_movements</code></td><td class="center">3</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-03</td><td><code>ISS-03-02</code></td><td>Giao dịch <code>相対取引</code> (SCR-10) — kiểm tra tư cách, hạn mức & tồn kho</td><td class="center">3</td><td class="center">S2 × C3</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-03</td><td><code>ISS-03-03</code></td><td>Nhập & Duyệt kết quả đấu giá <code>せり</code> (SCR-11, 12) — <code>maker ≠ checker</code></td><td class="center">3</td><td class="center">S3 × C3</td><td class="num">18</td><td class="num"><strong>18</strong></td><td class="num">72</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-03</td><td><code>ISS-03-04</code></td><td>Bảng điều phối & Ghi nhận Giao nhận từng phần (SCR-15, 16)</td><td class="center">2</td><td class="center">S2 × C3</td><td class="num">12</td><td class="num"><strong>12</strong></td><td class="num">48</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+
+        <tr><td>EPIC-04</td><td><code>ISS-04-01</code></td><td>Khóa sổ <code>業務日</code> (SCR-17) — RPC <code>lock_business_day</code> sinh snapshot bất biến</td><td class="center">3</td><td class="center">S2 × C3</td><td class="num">8</td><td class="num"><strong>10</strong></td><td class="num">40</td><td class="center"><span class="badge b-adj">Hiệu chỉnh (+2)</span></td></tr>
+        <tr><td>EPIC-04</td><td><code>ISS-04-02</code></td><td>Engine Quản lý Version Quy tắc (<code>rule_versions</code>), giới hạn ≤ 4 lần/năm & rollback</td><td class="center">2</td><td class="center">S2 × C3</td><td class="num">10</td><td class="num"><strong>10</strong></td><td class="num">40</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-04</td><td><code>ISS-04-03</code></td><td>Luồng duyệt điều chỉnh sau khóa sổ (SCR-13, 14) — <code>reverse + correction</code></td><td class="center">3</td><td class="center">S3 × C4</td><td class="num">13</td><td class="num"><strong>16</strong></td><td class="num">64</td><td class="center"><span class="badge b-adj">Hiệu chỉnh (+3)</span></td></tr>
+        <tr><td>EPIC-04</td><td><code>ISS-04-04</code></td><td>Chặn sửa trực tiếp ngày đã khóa & ghi log <code>security_events</code> độc lập</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+
+        <tr><td>EPIC-05 <span class="badge b-spec">Đặc thù</span></td><td><code>ISS-05-01</code></td><td>DB & UI cấu hình Bảng tỷ lệ bậc thưởng <code>incentive_rate_tiers</code> (<code>完納奨励金</code>)</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">10</td><td class="num"><strong>10</strong></td><td class="num">40</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-05 <span class="badge b-spec">Đặc thù</span></td><td><code>ISS-05-02</code></td><td>Đối chiếu thanh toán đủ hạn (<code>消込</code>) & Engine tính <code>完納奨励金</code></td><td class="center">3</td><td class="center">S2 × C3</td><td class="num">8</td><td class="num"><strong>13</strong></td><td class="num">52</td><td class="center"><span class="badge b-adj">Hiệu chỉnh (+5)</span></td></tr>
+        <tr><td>EPIC-05 <span class="badge b-spec">Đặc thù</span></td><td><code>ISS-05-03</code></td><td>Batch job định kỳ (J-05) tính thưởng tạm/chốt kỳ & xuất <code>incentive_results</code></td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">6</td><td class="num"><strong>6</strong></td><td class="num">24</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-05 <span class="badge b-spec">Đặc thù</span></td><td><code>ISS-05-04</code></td><td>Xử lý chênh lệch <code>完納奨励金</code> kỳ sau (<code>delta</code>) khi có sửa đổi sau khóa</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">5</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-adj">Hiệu chỉnh (+3)</span></td></tr>
+        <tr><td>EPIC-05 <span class="badge b-spec">Đặc thù</span></td><td><code>ISS-05-05</code></td><td>Bộ kiểm thử tự động theo Test Vector Phụ lục C.3 & biên làm tròn thuế</td><td class="center">2</td><td class="center">S1 × C3</td><td class="num">5</td><td class="num"><strong>5</strong></td><td class="num">20</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+
+        <tr><td>EPIC-06</td><td><code>ISS-06-01</code></td><td>Transactional Outbox, Dispatcher J-03 (poll ≤ 60s) & Email cảnh báo (SCR-22)</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-06</td><td><code>ISS-06-02</code></td><td>Bộ 12 báo cáo chuẩn (RPT-01..12) & Batch báo cáo ngày J-04 trước 11:00 JST</td><td class="center">6</td><td class="center">S4 × C3</td><td class="num">34</td><td class="num"><strong>34</strong></td><td class="num">136</td><td class="center"><span class="badge b-adj">Tách 6 sub-issue</span></td></tr>
+        <tr><td>EPIC-06</td><td><code>ISS-06-03</code></td><td>Xuất dữ liệu đối soát kế toán <code>IF-ACC-01</code> dạng CSV từ snapshot (SCR-24)</td><td class="center">1</td><td class="center">S2 × C2</td><td class="num">6</td><td class="num"><strong>6</strong></td><td class="num">24</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+
+        <tr><td>EPIC-07</td><td><code>ISS-07-01</code></td><td>Service Worker + IndexedDB Outbox cho tiếp nhận Lot & Giao nhận</td><td class="center">2</td><td class="center">S3 × C3</td><td class="num">13</td><td class="num"><strong>13</strong></td><td class="num">52</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-07</td><td><code>ISS-07-02</code></td><td>API <code>/api/sync</code> kiểm tra invariant & Màn hình xử lý xung đột (SCR-27)</td><td class="center">2</td><td class="center">S2 × C3</td><td class="num">9</td><td class="num"><strong>9</strong></td><td class="num">36</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+        <tr><td>EPIC-07</td><td><code>ISS-07-03</code></td><td>Công cụ chuyển đổi dữ liệu lịch sử 13 tháng (F-28) tuân thủ invariant</td><td class="center">2</td><td class="center">S2 × C2</td><td class="num">8</td><td class="num"><strong>8</strong></td><td class="num">32</td><td class="center"><span class="badge b-ok">Giữ nguyên</span></td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">TỔNG CỘNG TOÀN BỘ BACKLOG (7 EPIC · 26 ISSUE)</td>
+          <td class="center">64</td>
+          <td class="center">—</td>
+          <td class="num">277</td>
+          <td class="num">290 SWP</td>
+          <td class="num">1.160 giờ</td>
+          <td class="center">145,0 MD cốt lõi</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+</body>
+</html>
